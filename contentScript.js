@@ -17,12 +17,16 @@ function fetchIMDbRating(title) {
       });
   }
   
-  function insertRating(element, rating) {
+  function insertRating(thumbnailElement, rating) {
+    const ratingContainer = document.createElement('div');
+    ratingContainer.className = 'imdb-rating-container';
+  
     const ratingElement = document.createElement('div');
     ratingElement.className = 'imdb-rating';
     ratingElement.textContent = `IMDb: ${rating}`;
   
-    element.appendChild(ratingElement);
+    ratingContainer.appendChild(ratingElement);
+    thumbnailElement.appendChild(ratingContainer);
   }
   
   function processTitleElement(titleElement) {
@@ -38,5 +42,5 @@ function fetchIMDbRating(title) {
   }
   
   // You will need to adjust this query selector for the Netflix layout.
-  const titleElements = document.querySelectorAll('.your-title-element-selector');
-  titleElements.forEach(processTitleElement);
+  const thumbnailElements = document.querySelectorAll('.your-thumbnail-element-selector');
+  thumbnailElements.forEach(processThumbnailElement);
